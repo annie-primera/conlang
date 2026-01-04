@@ -20,7 +20,7 @@ class LexicalRelationships(Enum):
     ANTONYM = "antonym"
 
 
-class Word(BaseModel):
+class WordNode(BaseModel):
     word: str
     meaning: str
     pronunciation: str

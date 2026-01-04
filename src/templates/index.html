@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="title">Dictionary</h1>
+
+    <!-- Lookup form -->
+    <form class="card" method="post" action="/lookup_word">
+        <label for="word">Look up a word</label>
+        <input
+            id="word"
+            name="word"
+            type="text"
+            placeholder="Enter a word"
+            required
+            value="{{ word if word }}"
+        >
+        <button type="submit" class="primary">Search</button>
+    </form>
+
+    {% if result %}
+        <!-- Result display -->
+        <div class="card result">
+            <h2>{{ word }}</h2>
+
+            <ul>
+                {% for key, value in result.items() %}
+                    <li>
+                        <strong>{{ key | capitalize }}:</strong>
+                        {{ value }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+            <form method="post" action="/add_word">
+                <input type="hidden" name="word" value="{{ word }}">
+                <button type="submit" class="secondary">Add Word</button>
+            </form>
+
+            <form method="post" action="/delete_word">
+                <input type="hidden" name="word" value="{{ word }}">
+                <button type="submit" class="danger">Delete Word</button>
+            </form>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

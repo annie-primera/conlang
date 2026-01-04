@@ -1,5 +1,4 @@
 class Database:
-
     def get_connection(self):
         pass
 
