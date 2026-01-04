@@ -22,6 +22,7 @@ class LexicalRelationships(Enum):
 
 class Word(BaseModel):
     word: str
+    meaning: str
     pronunciation: str
     grammar_class: GrammarClass
     time_period: TimePeriod
