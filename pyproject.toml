@@ -1,10 +1,11 @@
 [project]
 name = "conlang"
 version = "0.1.0"
-description = "Add your description here"
+description = "Simple app for keeping track of conlang vocabulary"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "flask>=3.1.2",
+    "gremlinpython>=3.8.0",
     "pydantic>=2.12.5",
 ]
